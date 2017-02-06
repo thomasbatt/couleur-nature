@@ -10,7 +10,7 @@
 
 	    <?php require('components/seo.php') ?>
 
-		<style type="text/css">@@include( '../../wordpress/wp-content/themes/triathlon-theme/css/ldf.min.css')</style>
+		<style type="text/css">@@include( '../../wordpress/wp-content/themes/couleurnature-theme/css/ldf.min.css')</style>
 
 		@@if (develop === true) {
 		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/vendors.min.css?v=@version@'/>}

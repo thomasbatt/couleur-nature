@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/thomasbatt/hochfelden-triathlon.git"
+    "url": "https://github.com/thomasbatt/git-acker.git"
   },
   "bugs": {
-    "url": "https://gitlab.com/thomasbatt/hochfelden-triathlon",
+    "url": "https://github.com/thomasbatt/git-acker",
     "email": "thomasbatt@gmail.com"
   },
   "author": "<thomasbatt@gmail.com>",

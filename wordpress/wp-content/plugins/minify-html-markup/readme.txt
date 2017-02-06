@@ -1,10 +1,10 @@
 === Minify HTML ===
 Contributors: teckel
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KBW83T5TRT2MG
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=99J6Y4WCHCUN4&lc=US&item_name=Minify%20HTML&item_number=Minify%20HTML%20Plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: minify, minifer, minification, HTML, fast, faster, speed, performance, optimize, optimization, downloading, beautify, beautifier, sloppy, clean, cleaner, markup, compress, css, javascript
 Requires at least: 1.5
-Tested up to: 4.6
-Stable tag: 1.91
+Tested up to: 4.7.2
+Stable tag: 1.94
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,7 +17,7 @@ Ever look at the HTML markup of your website and notice how sloppy and amateuris
 
 Make your website's markup look professional by using Minify HTML. Simple to use, simply install and activate (with additional options for advanced settings).
 
-Does specialized minification to JavaScript and internal CSS. Doesn't mess with your textareas or preformatted text.
+Does optional specialized minification to JavaScript and internal CSS. Doesn't mess with your textareas or preformatted text.
 
 Settings options to removes HTML, CSS and JavaScript comments (leaving MSIE conditional comments), remove unneeded XHTML closing tags from HTML5 void elements and remove unneeded relative schemes and domains from links.
 
@@ -76,6 +76,15 @@ With Minify HTML, the source HTML file will be smaller, therefore, it will compr
 
 
 == Changelog ==
+
+= v1.94 - 01/03/2017  =
+* Added option to not minify JavaScript.
+
+= v1.93 - 12/28/2016  =
+* Removed extra blank lines after v1.92 modification.
+
+= v1.92 - 12/27/2016  =
+* Corrected rare problem with inline JavaScript line comments.
 
 = v1.91 - 6/29/2016  =
 * Fixed a problem with errors in the log and the "Remove schemes" switch not quite working correctly.

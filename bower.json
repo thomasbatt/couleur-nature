@@ -31,9 +31,9 @@
   "root": {
     "bowerPath": "bower_components",
     "srcPath": "src-theme",
-    "urlAssets": "wordpress/wp-content/themes/triathlon-theme",
+    "urlAssets": "wordpress/wp-content/themes/couleurnature-theme",
     "urlApps": ".",
-    "urlViews": "wordpress/wp-content/themes/triathlon-theme",
+    "urlViews": "wordpress/wp-content/themes/couleurnature-theme",
     "urlWP": "http://wordpress.org/latest"
   }
 }

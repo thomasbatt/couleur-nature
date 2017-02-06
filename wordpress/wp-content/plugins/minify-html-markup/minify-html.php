@@ -3,7 +3,7 @@
 Plugin Name: Minify HTML
 Plugin URI: https://wordpress.org/plugins/minify-html-markup/
 Description: Minify your HTML for faster downloading and cleaning up sloppy looking markup.
-Version: 1.91
+Version: 1.94
 Author: Tim Eckel
 Author URI: https://www.dogblocker.com
 License: GPLv3 or later
@@ -12,7 +12,7 @@ Text Domain:minify-html
 */
 
 /*
-	Copyright 2016  Tim Eckel  (email : tim@leethost.com)
+	Copyright 2017  Tim Eckel  (email : tim@leethost.com)
 
 	Minify HTML is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@ if ( !is_admin() ) add_action( 'init', 'teckel_init_minify_html', 1 );
 
 function teckel_minify_html_output($buffer) {
 	if ( substr( ltrim( $buffer ), 0, 5) == '<?xml' ) return ( $buffer );
+	$minify_javascript = get_option( 'minify_javascript' );
 	$minify_html_comments = get_option( 'minify_html_comments' );
 	$buffer = str_replace(array (chr(13) . chr(10), chr(9)), array (chr(10), ''), $buffer);
 	$buffer = str_ireplace(array ('<script', '/script>', '<pre', '/pre>', '<textarea', '/textarea>', '<style', '/style>'), array ('M1N1FY-ST4RT<script', '/script>M1N1FY-3ND', 'M1N1FY-ST4RT<pre', '/pre>M1N1FY-3ND', 'M1N1FY-ST4RT<textarea', '/textarea>M1N1FY-3ND', 'M1N1FY-ST4RT<style', '/style>M1N1FY-3ND'), $buffer);
@@ -53,10 +54,15 @@ function teckel_minify_html_output($buffer) {
 				$asis = '';
 				for ($iii = 0; $iii < count($split2); $iii ++) {
 					if ($split2[$iii]) $asis .= trim($split2[$iii]) . chr(10);
+					if ( $minify_javascript != 'no' ) {
+						if (strpos($split2[$iii], '//') !== false && substr(trim($split2[$iii]), -1) == ';' ) $asis .= chr(10);
+					}
 				}
 				if ($asis) $asis = substr($asis, 0, -1);
 				if ( $minify_html_comments != 'no' ) $asis = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $asis);
-				$asis = str_replace(array (';' . chr(10), '>' . chr(10), '{' . chr(10), '}' . chr(10), ',' . chr(10)), array(';', '>', '{', '}', ','), $asis);
+				if ( $minify_javascript != 'no' ) {
+					$asis = str_replace(array (';' . chr(10), '>' . chr(10), '{' . chr(10), '}' . chr(10), ',' . chr(10)), array(';', '>', '{', '}', ','), $asis);
+				}
 			} else if (substr($asis, 0, 6) == '<style') {
 				$asis = preg_replace(array ('/\>[^\S ]+/s', '/[^\S ]+\</s', '/(\s)+/s'), array('>', '<', '\\1'), $asis);
 				if ( $minify_html_comments != 'no' ) $asis = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $asis);
@@ -96,22 +102,26 @@ function minify_html_menu_options() {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
 	$minify_html_active = get_option( 'minify_html_active' );
+	$minify_javascript = get_option( 'minify_javascript' );
 	$minify_html_comments = get_option( 'minify_html_comments' );
 	$minify_html_xhtml = get_option( 'minify_html_xhtml' );
 	$minify_html_relative = get_option( 'minify_html_relative' );
 	$minify_html_scheme = get_option( 'minify_html_scheme' );
 	if ( !$minify_html_active ) $minify_html_active = 'yes';
+	if ( !$minify_javascript ) $minify_javascript = 'yes';
 	if ( !$minify_html_comments ) $minify_html_comments = 'yes';
 	if ( !$minify_html_xhtml ) $minify_html_xhtml = 'no';
 	if ( !$minify_html_relative ) $minify_html_relative = 'no';
 	if ( !$minify_html_scheme ) $minify_html_scheme = 'no';
 	if( isset($_POST[ 'minify_html_submit_hidden' ]) && $_POST[ 'minify_html_submit_hidden' ] == 'Y' ) {
 		if ( isset( $_POST[ 'minify_html_active' ] ) ) $minify_html_active = filter_var ( $_POST[ 'minify_html_active' ], FILTER_SANITIZE_STRING ); else $minify_html_active = 'yes';
+		if ( isset( $_POST[ 'minify_javascript' ] ) ) $minify_javascript = filter_var ( $_POST[ 'minify_javascript' ], FILTER_SANITIZE_STRING ); else $minify_javascript = 'yes';
 		if ( isset( $_POST[ 'minify_html_comments' ] ) ) $minify_html_comments = filter_var ( $_POST[ 'minify_html_comments' ], FILTER_SANITIZE_STRING ); else $minify_html_comments = 'yes';
 		if ( isset( $_POST[ 'minify_html_xhtml' ] ) ) $minify_html_xhtml = filter_var ( $_POST[ 'minify_html_xhtml' ], FILTER_SANITIZE_STRING ); else $minify_html_xhtml = 'no';
 		if ( isset( $_POST[ 'minify_html_relative' ] ) ) $minify_html_relative = filter_var ( $_POST[ 'minify_html_relative' ], FILTER_SANITIZE_STRING ); else $minify_html_relative = 'no';
 		if ( isset( $_POST[ 'minify_html_scheme' ] ) ) $minify_html_scheme = filter_var ( $_POST[ 'minify_html_scheme' ], FILTER_SANITIZE_STRING ); else $minify_html_scheme = 'no';
 		update_option( 'minify_html_active', $minify_html_active );
+		update_option( 'minify_javascript', $minify_javascript );
 		update_option( 'minify_html_comments', $minify_html_comments );
 		update_option( 'minify_html_xhtml', $minify_html_xhtml );
 		update_option( 'minify_html_relative', $minify_html_relative );
@@ -138,6 +148,14 @@ function minify_html_menu_options() {
 						<input type="radio" name="minify_html_active" value="yes"<?php echo ($minify_html_active=='yes' ? ' checked' : ''); ?>><span class="value"><strong><?php _e( 'Enable', 'minify-html' ); ?></strong></span>
 						<input type="radio" name="minify_html_active" value="no"<?php echo ($minify_html_active!='yes' ? ' checked' : ''); ?>><span class="value"><?php _e( 'Disable', 'minify-html' ); ?></span>
 						<p class="description"><?php echo __( 'Enable or disable Minify HTML', 'minify-html' ); ?></p>
+					</td>
+				</tr>
+				<tr class="minify_javascript minify_html_options">
+					<th><label><?php echo __( 'Minify inline JavaScript', 'minify-html' ); ?></label></th>
+					<td>
+						<input type="radio" name="minify_javascript" value="yes"<?php echo ($minify_javascript=='yes' ? ' checked' : ''); ?>><span class="value"><strong><?php _e( 'Yes', 'minify-html' ); ?></strong></span>
+						<input type="radio" name="minify_javascript" value="no"<?php echo ($minify_javascript!='yes' ? ' checked' : ''); ?>><span class="value"><?php _e( 'No', 'minify-html' ); ?></span>
+						<p class="description"><?php echo __( 'This option is typically safe to set to "Yes"', 'minify-html' ); ?></p>
 					</td>
 				</tr>
 				<tr class="minify_html_comments minify_html_options">
