@@ -15,7 +15,7 @@
 				left: 50px;
 				top: 100px;
 				// z-index: $header-zindex ;
-				background-color: rgba(0, 86, 168, 0.8);
+				background-color: $green;
 				// position: relative;
 			}
 			&-text{
@@ -31,7 +31,7 @@
 			&-logo{
 				position: absolute;
 				// z-index: $header-zindex ;
-				background-image: url("../img/Orque.png");
+				background-image: url("../img/logo.png");
 				background-repeat: no-repeat;
 		    	// background-position: center; 
 				width: 140px;

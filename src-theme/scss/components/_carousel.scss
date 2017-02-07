@@ -29,32 +29,32 @@
 			
 			.item:nth-child(1) {
 				.item-img:nth-child(1) {
-				    @include bg-slider("kalif_bg.jpg");
+				    @include bg-slider("etals1.jpg");
 				}
 				.item-img:nth-child(2) {
-				    @include bg-slider("kalif3-min.png",4);
+				    @include bg-slider("etals2.png",4);
 				}
 			}
 			.item:nth-child(2) {
 				.item-img:nth-child(1) {
-				    @include bg-slider("thom1.jpg");
+				    @include bg-slider("devanture1.jpg");
 				}
 				.item-img:nth-child(2) {
-				    @include bg-slider("thom2-min.png",4);
+				    // @include bg-slider("thom2-min.png",4);
 				}
 				.item-img:nth-child(3) {
-				    @include bg-slider("thom3-min.png",6,120%);
+				    // @include bg-slider("thom3-min.png",6,120%);
 				}
 			}
 			.item:nth-child(3) {
 				.item-img:nth-child(1) {
-				    @include bg-slider("nat1-min.png");
+				    @include bg-slider("rayons1.jpg");
 				}
 				.item-img:nth-child(2) {
-				    @include bg-slider("nat2-min.png",4,100%,-30px);
+				    // @include bg-slider("nat2-min.png",4,100%,-30px);
 				}
 				.item-img:nth-child(3) {
-				    @include bg-slider("nat3-min.png",6,100%,-30px);
+				    // @include bg-slider("nat3-min.png",6,100%,-30px);
 				}
 			}
 	        

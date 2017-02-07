@@ -4,7 +4,7 @@
 	<head>
 	    <meta charset="UTF-8">
 	    <title><?php bloginfo('name') ?> - <?php the_title(); ?></title>
-		<link href="<?php bloginfo('template_url'); ?>/img/Orque.png?v=@version@" rel="shortcut icon">
+		<link href="<?php bloginfo('template_url'); ?>/img/logo.png?v=@version@" rel="shortcut icon">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=no">
 
