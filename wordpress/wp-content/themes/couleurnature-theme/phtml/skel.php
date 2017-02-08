@@ -306,7 +306,7 @@ html {
     height: 120%;
     width: 100%; }
   #slider-carouselFade .carouselFade-fade .carouselFade-inner .item:nth-child(2) .item-img:nth-child(1) {
-    background-image: url(../img/slide_devanture1.jpg?v=VQwJ7x61cr%2BjZImUeBJe6Q%3D%3D);
+    background-image: url(../img/slide_bio1.jpg?v=1u5T%2FFkUgdNpFqd2cTLHDA%3D%3D);
     background-repeat: repeat-y;
     background-size: cover;
     background-position: center top;
@@ -316,8 +316,19 @@ html {
     z-index: 2;
     height: 120%;
     width: 100%; }
+  #slider-carouselFade .carouselFade-fade .carouselFade-inner .item:nth-child(2) .item-img:nth-child(2) {
+    background-image: url(../img/slide_bio2.png?v=GZ0YVYsefqSYMnhXSz7QNQ%3D%3D);
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center top;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    height: 120%;
+    width: 100%; }
   #slider-carouselFade .carouselFade-fade .carouselFade-inner .item:nth-child(3) .item-img:nth-child(1) {
-    background-image: url(../img/slide_rayons1.jpg?v=4bNc0i4Q0OqdoARiYZSi0A%3D%3D);
+    background-image: url(../img/slide_rayons1.jpg?v=hmDqZRWCsyLPyytFEcHcug%3D%3D);
     background-repeat: repeat-y;
     background-size: cover;
     background-position: center top;
@@ -325,6 +336,17 @@ html {
     left: 0;
     top: 0;
     z-index: 2;
+    height: 120%;
+    width: 100%; }
+  #slider-carouselFade .carouselFade-fade .carouselFade-inner .item:nth-child(3) .item-img:nth-child(2) {
+    background-image: url(../img/slide_rayons2.png?v=DrM0Nv%2BllCoud9lPQBCpAg%3D%3D);
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center top;
+    position: fixed;
+    left: 0;
+    top: -30px;
+    z-index: 4;
     height: 120%;
     width: 100%; }
   #slider-carouselFade .carouselFade-fade .carouselFade-inner .active {
@@ -361,8 +383,8 @@ html {
 </style>
 
 		
-		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/vendors.min.css?v=2f71002bac0'/>
-		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/website.min.css?v=2f71002bac0'/>
+		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/vendors.min.css?v=308e3b08490'/>
+		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/website.min.css?v=308e3b08490'/>
 	</head>
 
 	<body>
@@ -374,6 +396,6 @@ html {
 	</body>
 
 	
-	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/vendors.min.js?v=2f71002bac0'></script>
-	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/website.min.js?v=2f71002bac0'></script>
+	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/vendors.min.js?v=308e3b08490'></script>
+	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/website.min.js?v=308e3b08490'></script>
 </html>

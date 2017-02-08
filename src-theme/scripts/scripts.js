@@ -187,25 +187,34 @@ $('document').ready(function(){
         mouse: false,
         mouseStrength: 10,
         scrollSpeed: 0.2,
-        scale: 1.10
+        scale: 1.10,
+        zoom: true,
+        zoomScale: 1.40,
+        zoomDuration: 70
       });
       $($item+" .item-img:nth-child(2)").interactive_el({
         box : $box,
         position : 2,
-        // mouse: false,
+        mouse: false,
         duration: 0.2,
         mouseStrength: 20,
         scrollSpeed: 0.15,
-        scale: 1.10
+        scale: 1.10,
+        zoom: true,
+        zoomScale: 1.90,
+        zoomDuration: 70
       });
       $($item+" .item-img:nth-child(3)").interactive_el({
         box : $box,
         position : 3,
-        // mouse: false,
+        mouse: false,
         duration: 0.3,
         mouseStrength: 60,
         scrollSpeed: 0.05,
-        scale: 1.10
+        scale: 1.10,
+        zoom: true,
+        zoomScale: 2.50,
+        zoomDuration: 70
       });
     }
 

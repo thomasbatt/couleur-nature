@@ -23,7 +23,10 @@
     mouseStrength: 10,
     scroll: true,
     scrollSpeed: 2,
-    scale: 1
+    scale: 1,
+    zoom: true,
+    zoomScale: 1.10,
+    zoomDuration: 10
   };  
   
   $.fn.interactive_el = function(options){
@@ -174,6 +177,40 @@
         transitionCSS(el,duration,"ease",0);
         // el.addClass('transition');
       }
+
+      if(settings.zoom){
+        var zoomScale = settings.zoomScale;
+        var zoomDuration = settings.zoomDuration;
+        setInterval(function(){
+          if (!isDisplay()){
+            transformCSS('zoom',el,coordTotal,1,0);
+            return;
+          }
+          transformCSS('zoom',el,coordTotal,zoomScale,zoomDuration);
+          transitionCSS(el,zoomDuration,"linear",0);
+        },120); 
+      }
+
+      // function zommTransform() {
+      //   if (!isDisplay()){
+      //       transformCSS('zoom',el,coordTotal,1,0);
+      //       return false;
+      //   }
+      //   setInterval(function(){
+      //     scale += 0.0005; 
+      //     // transformCSS('zoom',el,coordTotal,scale,0);
+      //   },1);
+      //   return true;
+      // };
+
+      // if(settings.zoom){
+      //   setInterval(function(){
+      //     res = zommTransform();
+      //     // console.log(res+settings.position,el[0].className);
+      //     console.log(res+' 70!!!!!')    
+      //   },12000);
+      // };
+
 
       // $fwindow.trigger('scroll');
       
