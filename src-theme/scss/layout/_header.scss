@@ -248,25 +248,5 @@
 
 nav {
   &.graybar.open, .col-btn {
-    // background: #5c5c5c;
   }
 }
-
-@keyframes scrolldown {
-    from {
-        transform: translateY(0);
-    }
-    to   { 
-        transform: translateY(-10px);
-     }
-}
-@keyframes scrollnav {
-    from {
-        transform: translateX(0);
-    }
-    to   { 
-        transform: translateX(-15px);
-     }
-}
-
-

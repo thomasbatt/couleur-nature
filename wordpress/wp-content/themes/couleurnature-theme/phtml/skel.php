@@ -260,18 +260,6 @@ html {
   background-attachment: fixed;
   background-position: center center; }
 
-@keyframes scrolldown {
-  from {
-    transform: translateY(0); }
-  to {
-    transform: translateY(-10px); } }
-
-@keyframes scrollnav {
-  from {
-    transform: translateX(0); }
-  to {
-    transform: translateX(-15px); } }
-
 #slider-carouselFade .carouselFade-fade .carouselFade-inner {
   height: 100vh;
   width: 100%; }
@@ -383,8 +371,8 @@ html {
 </style>
 
 		
-		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/vendors.min.css?v=308e3b08490'/>
-		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/website.min.css?v=308e3b08490'/>
+		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/vendors.min.css?v=317c82608f8'/>
+		<link rel='stylesheet' href='<?php bloginfo('template_url')?>/css/website.min.css?v=317c82608f8'/>
 	</head>
 
 	<body>
@@ -396,6 +384,6 @@ html {
 	</body>
 
 	
-	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/vendors.min.js?v=308e3b08490'></script>
-	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/website.min.js?v=308e3b08490'></script>
+	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/vendors.min.js?v=317c82608f8'></script>
+	<script type='text/javascript' src='<?php bloginfo('template_url');?>/js/website.min.js?v=317c82608f8'></script>
 </html>
